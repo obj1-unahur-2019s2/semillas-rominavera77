@@ -16,7 +16,7 @@ Además, queremos poder preguntarle:
 * cuántas **horas de sol tolera**;
 * si **es fuerte** o no;
 * si **da nuevas semillas** o no;
-* cuánto **espacio** ocupa una vez plantada.
+* cuánto **espacio** ocupa una vez plantada, medido en metros cuadrados.
 
 De todos ellos, el año de obtención y la altura se configuran para cada planta; el resto se calcula en función de la especia y de características generales.
 
@@ -29,7 +29,9 @@ Contemplaremos las especies que se detallan a continuación.
 ### Menta
 Tolera seis horas de sol al día. Como condición alternativa para saber si da semillas, hay que mirar si su `altura` es mayor a 0.4 metros. Como crece al ras del suelo, diremos que el espacio que ocupa es su altura multiplicada por 3.
 
-Por ejemplo, si tenemos una menta de 1 metro, debería dar semillas y ocupar un espacio de 3 metros. Por el contrario, si la menta es de solo 0.3 metros, no debería dar semillas y solo ocuparia 0.9 de espacio.
+Ejemplos:
+* una menta de 1 metro, debería dar semillas y ocupar un espacio de 3 metros cuadrados.
+* una menta de solo 0.3 metros, no debería dar semillas y ocuparía 0.9 m2 de espacio.
 
 ### Soja
 La tolerancia al sol depende de su altura:
@@ -39,12 +41,14 @@ La tolerancia al sol depende de su altura:
 
 La condición alternativa para que de semillas es su propia semilla sea de obtención reciente (posterior al 2007) y además su altura sea de más de 1 metro. El espacio que ocupa es la mitad de su altura.
 
-Por ejemplo, si tuviesemos una soja de 0.6 metros y de semilla de 2009, la planta tendría una tolerancia al sol de 7 horas y no daria semillas.
+Por ejemplo, si tuviesemos una soja de 0.6 metros y de semilla de 2009, la planta tendría una tolerancia al sol de 7 horas, no daría semillas y ocuparía 0.3 m2.
 
 ### Quinoa
 Existen muchas cepas de esta nutritiva planta andina y es por eso que la cantidad de horas de sol que tolera la configuraremos para cada planta. Ocupa siempre 0.5 metros cuadrados y la condición alternativa para saber si da semillas es que el año de obtención de la semilla que le dio origen sea anterior al 2005.
 
-Por ejemplo si tenemos una quinoa que tolera 12 horas de sol y su semilla de origen es de 2010, se trata de una planta que da semillas, en cambio si tenemos una planta que tolere la misma cantidad de horas de sol pero cuya semilla de origen es de 2001 no da semillas.
+Por ejemplo:
+* si tenemos una quinoa que tolera 12 horas de sol y su semilla de origen es de 2010, se trata de una planta que da semillas.
+* si tenemos una planta que tolere 9 horas de sol pero cuya semilla de origen es de 2001, también da semillas.
 
 ## 2. Variedades
 
@@ -67,9 +71,11 @@ Y se pide:
 * saber si **tiene complicaciones**, lo cual es así si alguna de sus plantas tolera menos sol del que recibe la parcela;
 * poder **plantar una planta** que se recibe por parámetro. El efecto que produce es que se agregue a la colección. Esto debe arrojar un error si al plantar se supera la cantidad máxima _o bien_ si la parcela recibe al menos 2 horas más de sol que los que la planta tolera.
 
-Por ejemplo si tenemos un parcela de 20 de ancho por 1 de largo y  que tiene 8 horas de sol por día, resulta que su superficie es de 20 y la cantidad máxima de plantas que tolera es de 4.
-Si a esa parcela le plantamos 4 de plantas de soja de mas de 1 metro, tendría una parcela sin complicaciones.
-Si quisiesemos agregar una 5ta planta, no podríamos porque superaría la cantidad máxima y nos arrojaría un error.
+Un ejemplo:
+
+Una parcela de 20 mts. de ancho por 1 mt. de largo que recibe 8 horas de sol por día, tiene una superficie de 20 m2 y la cantidad máxima de plantas que tolera es de 4.
+
+Si a esa parcela le plantamos 4 plantas de soja de más de 1 metro (que toleran 9 horas de sol), no tendría complicaciones. Si intentaramos agregar una quinta planta, se superaría la cantidad máxima y nos arrojaría un error.
 
 
 ## 4. Parcelas ideales
