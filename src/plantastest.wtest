@@ -1,0 +1,43 @@
+import semillas.*
+
+test "Menta" {
+	var menta = new Menta(altura=1)
+	var menta2 = new Menta(altura=0.3)
+	
+	assert.that(menta.daSemillas())
+	assert.notThat(menta2.daSemillas())
+	assert.equals(0.9,menta2.espacioQueOcupa())
+
+}
+/*
+    una menta de 1 metro, debería dar semillas y ocupar un espacio de 3 metros cuadrados.
+    una menta de solo 0.3 metros, no debería dar semillas y ocuparía 0.9 metros cuadrados de espacio.
+
+ */
+
+test "Soja" {
+	var soja = new Soja(altura=0.6, anioDeSemilla = 2009)
+	
+	assert.equals(7,soja.horasDeSol())
+	assert.notThat(soja.daSemillas())
+	assert.equals(0.3,soja.espacioQueOcupa())
+}
+
+/*ssi tuviesemos una soja de 0.6 metros y de semilla de 2009, 
+ * la planta tendría una tolerancia al sol de 7 horas, 
+ * no daría semillas y ocuparía 0.3 metros cuadrados.
+ */
+ 
+ test "Quinoa"{
+ 	var quinoa1 = new Quinoa(horasDeSol=12, anioDeSemilla=2010)
+ 	var quinoa2 = new Quinoa(horasDeSol=9, anioDeSemilla=2001)
+ 	
+ 	assert.that(quinoa1.daSemillas())
+ 	assert.that(quinoa2.daSemillas())
+ }
+ 
+ /*
+    si tenemos una quinoa que tolera 12 horas de sol y su semilla de origen es de 2010, se trata de una planta que da semillas.
+    si tenemos una planta que tolere 9 horas de sol pero cuya semilla de origen es de 2001, también da semillas.
+  */
+ 

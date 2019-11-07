@@ -1,0 +1,37 @@
+import semillas.*
+import parcelas.*
+
+describe "Parcela"{
+	var parcela = new Parcela(ancho=20, largo=1, horasDeSol=8)
+	var soja1 = new Soja(altura=2, horasDeSol=9)
+	var soja2 = new Soja(altura=2, horasDeSol=9)
+	var soja3 = new Soja(altura=2, horasDeSol=9)
+	var soja4 = new Soja(altura=2, horasDeSol=9)
+	var soja5 = new Soja(altura=2, horasDeSol=9)
+	
+	fixture{
+		parcela.plantar(soja1)
+		parcela.plantar(soja2)
+		parcela.plantar(soja3)
+		parcela.plantar(soja4)
+	}
+	
+	test "Parcela" {
+
+		assert.equals(20,parcela.superficie())
+		assert.equals(4,parcela.cantidadMaximaDePlantas())
+		assert.notThat(parcela.tieneComplicaciones())		
+	}
+	
+	test "Plantar una planta de más"{
+		
+		assert.throwsException{parcela.plantar(soja5)}
+		
+	}
+}
+/*Una parcela de 20 metros de ancho por 1 metro de largo que recibe 8 horas de sol por día,
+ *  tiene una superficie de 20 metros cuadrados y la cantidad máxima de plantas que tolera es 4.
+
+Si a esa parcela le plantamos 4 plantas de soja de más de 1 metro (que toleran 9 horas de sol), 
+* no tendría complicaciones. Si intentaramos agregar una quinta planta,
+*  se superaría la cantidad máxima y nos arrojaría un error. */
