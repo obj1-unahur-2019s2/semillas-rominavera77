@@ -26,6 +26,9 @@ describe "Parcela"{
 	test "Plantar una planta de más"{
 		
 		assert.throwsException{parcela.plantar(soja5)}
+	}
+	
+	test "Parcela bien asociada"{
 		
 	}
 }

@@ -1,8 +1,8 @@
 import semillas.*
 
 class Parcela {
-	const property largo
-	const property ancho
+	var property largo
+	var property ancho
 	var property horasDeSol 
 	const property plantas = []
 	
@@ -21,10 +21,17 @@ class Parcela {
 		}
 		//NO VA "else"!! 
 		//El error corta la ejecucion 
-		else {plantas.add(unaPlanta) }
+		//else 
+		plantas.add(unaPlanta) 
 	}
 	method cantidadDePlantasPlantadas(){
 		return plantas.size()
+	}
+	method porcentajePlantasBienAsociadas(){
+		return self.cantidadDePlantasPlantadas() * 100 / self.cantidadDePlantasBienAsociada()
+	}
+	method cantidadDePlantasBienAsociada(){
+		return plantas.filter({planta => planta.seAsociaBien()}).size()
 	}
 }
 
@@ -44,10 +51,19 @@ class ParcelaIndustrial inherits Parcela{
  	const property parcelas = []
  	
  	method promedioPlantasPorParcela(){
- 		
+ 		return parcelas.sum({parcela => parcela.cantidadDePlantasPlantadas()}) / parcelas.cantidadDeParcelas()
  	}
+ 	method cantidadDeParcelas(){
+ 		 self.parcelas().size()
+ 	}
+ 	method parcelaMasAutosustentable(){
+ 		return parcelas.find({parcela =>parcela.cantidadDePlantasPlantadas()>4 and parcela.porcentajePlantasBienAsociadas().max()})
+ 	}
+ 	
  }
- /*colección de parcelas.
+ /*Inta
+  * 
+  * colección de parcelas.
 
 Se pide realizar dos estadísticas:
 
@@ -56,7 +72,3 @@ Se pide realizar dos estadísticas:
     obtener la parcela más autosustentable. Para esto, solo consideraremos 
     * aquellas parcelas con más de 4 plantas y elegiremos aquella que tenga mayor porcentaje de plantas "bien asociadas" (ver etapa 5).
   */
- 
- 
- 
- 

@@ -9,9 +9,9 @@ class Planta{
 	method espacioQueOcupa()		// mt2
 	method daSemillas(){ return self.esFuerte() }
 	method esIdeal(unaParcela)
-	method seAsociaBien(unaParcela){
-		if()
-	}
+	//method seAsociaBien(unaParcela){
+		//if()
+	//}
 }
 /*
     para las parcelas ecológicas: que la parcela no tenga complicaciones y sea ideal para la planta;
